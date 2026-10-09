@@ -5,36 +5,6 @@ import { getSiteConfig } from "@/content";
 
 import { FootstepTrail } from "./FootstepTrail";
 
-const cityWalks = [
-  {
-    title: "Kallianpur Trail",
-    times: ["Oct 2nd: 7.00 am to 9.00 am", "Oct 4th: 4.30 pm to 6.30 pm"],
-  },
-  {
-    title: "Ratha Beedi Trail",
-    times: [
-      "Oct 2nd: 4.30 pm to 6.30 pm",
-      "Oct 3rd: 5.00 pm to 7.00 pm",
-      "Oct 4th: 8.00 am to 10.00 am",
-    ],
-  },
-];
-
-const excursions = [
-  {
-    title: "Barkur Trail",
-    times: ["Oct 3rd: 8.30 am to 2.30 pm"],
-  },
-  {
-    title: "Shirva trail",
-    times: ["Oct 3rd: 8.30 am to 2.30 pm"],
-  },
-  {
-    title: "Moodbidri Trail",
-    times: ["Oct 4th: 9.00 am to 3.00 pm"],
-  },
-];
-
 export function WalkWithUs() {
   const siteConfig = getSiteConfig();
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp.phoneE164}`;
@@ -55,9 +25,8 @@ export function WalkWithUs() {
               Walk with us
             </h2>
 
-            <div className="mt-12 space-y-12 sm:mt-14 sm:space-y-14">
-              <ScheduleGroup title="City Walks" experiences={cityWalks} />
-              <ScheduleGroup title="6-hour Excursions" experiences={excursions} />
+            <div className="mt-12 sm:mt-14">
+              <EventDetails />
             </div>
           </div>
 
@@ -88,40 +57,35 @@ export function WalkWithUs() {
   );
 }
 
-type ScheduledWalk = {
-  title: string;
-  times: string[];
-};
-
-type ScheduleGroupProps = {
-  title: string;
-  experiences: ScheduledWalk[];
-};
-
-function ScheduleGroup({ title, experiences }: ScheduleGroupProps) {
-  const headingId = `${title.toLowerCase().replaceAll(" ", "-")}-heading`;
-
+function EventDetails() {
   return (
-    <section aria-labelledby={headingId}>
+    <section aria-labelledby="event-details-heading">
       <h3
-        id={headingId}
+        id="event-details-heading"
         className="font-sans text-2xl font-bold text-[#f3e8d2] sm:text-3xl"
       >
-        {title}
+        Event details
       </h3>
-      <div className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2 sm:gap-y-9">
-        {experiences.map((experience) => (
-          <div key={experience.title}>
-            <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
-              {experience.title}
-            </p>
-            <div className="mt-2 space-y-1 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
-              {experience.times.map((time) => (
-                <p key={time}>{time}</p>
-              ))}
-            </div>
-          </div>
-        ))}
+      <div className="mt-6 space-y-5">
+        <div>
+          <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
+            Oct 11th 2026
+          </p>
+          <p className="mt-2 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
+            8:30 am - 2:30 pm
+          </p>
+        </div>
+        <p className="font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
+          Walk lead: Shravya Hegde, architect and photographer
+        </p>
+        <div>
+          <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
+            Rs 5000 per person
+          </p>
+          <p className="mt-2 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
+            (inclusive of transportation and food)
+          </p>
+        </div>
       </div>
     </section>
   );
