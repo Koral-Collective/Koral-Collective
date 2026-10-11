@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789391860/Ratha_beedi.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Ratha%20beedi.jpg",
       alt: "Ratha Beedi trail in Udupi",
     },
 
@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789392820/Kaliyanpur_1.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Kaliyanpur.jpeg",
       alt: "Kallianpur trail in coastal Karnataka",
     },
 
@@ -118,7 +118,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789393034/Barkur_1.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Barkur.jpeg",
       alt: "Barkur heritage trail in Tulunadu",
     },
 
@@ -160,7 +160,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789391816/Basrur.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Basrur.jpeg",
       alt: "Basrur heritage trail",
     },
 
@@ -202,7 +202,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789392645/Moodbidri_website_1.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Moodbidri%20.jpg",
       alt: "Moodbidri Jain heritage trail",
     },
 
@@ -244,7 +244,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789394062/Gomateshwara_Karkala.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Gomateshwara%20Karkala.png",
       alt: "Karkala Jain heritage trail",
     },
 
@@ -286,7 +286,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://res.cloudinary.com/ev7y5xh0/image/upload/v1789391935/Shirva.jpg",
+      src: "https://ik.imagekit.io/abr6j2ge8/Shirva.JPG",
       alt: "Shirva cultural walking trail",
     },
 
