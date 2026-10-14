@@ -57,6 +57,53 @@ export function WalkWithUs() {
   );
 }
 
+type WalkEvent = {
+  date: string;
+  trail: string;
+  lead: string;
+  time: string;
+  price?: string;
+  soldOut?: boolean;
+};
+
+const WALK_EVENTS: WalkEvent[] = [
+  {
+    date: "Oct 18th, Sunday",
+    trail: "Ratha Beedi trail",
+    lead: "Architect Sharvani",
+    time: "4:30 - 6:30 pm",
+    price: "Rs 1600 per person",
+  },
+  {
+    date: "Oct 19th, Monday",
+    trail: "Ratha Beedi trail",
+    lead: "Architect Sharvani",
+    time: "7:00 - 9:00 am",
+    soldOut: true,
+  },
+  {
+    date: "Oct 25th, Sunday",
+    trail: "Basrur trail",
+    lead: "Architect and photographer Shravya",
+    time: "8:30 am - 2:30 pm",
+    price: "Rs 5000 per person",
+  },
+  {
+    date: "Oct 30th, Friday",
+    trail: "Kallianpur trail",
+    lead: "Archeologist T Murugeshi and historian Shreyas",
+    time: "7:00 - 9:00 am",
+    price: "Rs 1600 per person",
+  },
+  {
+    date: "Oct 30th, Friday",
+    trail: "Barkur trail",
+    lead: "Architect and photographer Shravya",
+    time: "8:30 am - 2:30 pm",
+    soldOut: true,
+  },
+];
+
 function EventDetails() {
   return (
     <section aria-labelledby="event-details-heading">
@@ -66,27 +113,33 @@ function EventDetails() {
       >
         Event details
       </h3>
-      <div className="mt-6 space-y-5">
-        <div>
-          <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
-            Oct 11th 2026
-          </p>
-          <p className="mt-2 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
-            8:30 am - 2:30 pm
-          </p>
-        </div>
-        <p className="font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
-          Walk lead: Shravya Hegde, architect and photographer
-        </p>
-        <div>
-          <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
-            Rs 5000 per person
-          </p>
-          <p className="mt-2 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
-            (inclusive of transportation and food)
-          </p>
-        </div>
-      </div>
+      <ul className="mt-6 space-y-8">
+        {WALK_EVENTS.map((event) => (
+          <li
+            key={`${event.date}-${event.trail}`}
+            className={event.soldOut ? "opacity-80" : undefined}
+          >
+            <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
+              {event.date}
+            </p>
+            <p className="mt-2 font-sans text-base leading-relaxed text-[#f3e8d2] sm:text-lg">
+              {event.trail}, led by {event.lead}
+            </p>
+            <p className="mt-1 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
+              {event.time}
+            </p>
+            {event.soldOut ? (
+              <p className="mt-2 inline-block border border-[#d8c09e] px-2 py-0.5 font-sans text-sm font-semibold uppercase tracking-wide text-[#d8c09e]">
+                Sold out
+              </p>
+            ) : (
+              <p className="mt-1 font-sans text-base font-semibold leading-relaxed text-[#f3e8d2] sm:text-lg">
+                {event.price}
+              </p>
+            )}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
