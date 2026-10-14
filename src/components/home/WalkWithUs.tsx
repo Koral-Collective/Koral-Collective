@@ -34,7 +34,7 @@ export function WalkWithUs() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-auto w-full max-w-[20rem] self-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3e8d2] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-brand-primary)] lg:justify-self-end"
+            className="mx-auto w-full max-w-[20rem] self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3e8d2] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-brand-primary)] lg:sticky lg:top-24 lg:justify-self-end"
             aria-label="Connect with the koral collective on WhatsApp"
           >
             <div className="aspect-square w-full bg-[#f3e8d2] p-3">
@@ -70,35 +70,35 @@ const WALK_EVENTS: WalkEvent[] = [
   {
     date: "Oct 18th, Sunday",
     trail: "Ratha Beedi trail",
-    lead: "Architect Sharvani",
+    lead: "architect Sharvani",
     time: "4:30 - 6:30 pm",
     price: "Rs 1600 per person",
   },
   {
     date: "Oct 19th, Monday",
     trail: "Ratha Beedi trail",
-    lead: "Architect Sharvani",
+    lead: "architect Sharvani",
     time: "7:00 - 9:00 am",
     soldOut: true,
   },
   {
     date: "Oct 25th, Sunday",
     trail: "Basrur trail",
-    lead: "Architect and photographer Shravya",
+    lead: "architect and photographer Shravya",
     time: "8:30 am - 2:30 pm",
     price: "Rs 5000 per person",
   },
   {
     date: "Oct 30th, Friday",
     trail: "Kallianpur trail",
-    lead: "Archeologist T Murugeshi and historian Shreyas",
+    lead: "archeologist T Murugeshi and historian Shreyas",
     time: "7:00 - 9:00 am",
     price: "Rs 1600 per person",
   },
   {
     date: "Oct 30th, Friday",
     trail: "Barkur trail",
-    lead: "Architect and photographer Shravya",
+    lead: "architect and photographer Shravya",
     time: "8:30 am - 2:30 pm",
     soldOut: true,
   },
