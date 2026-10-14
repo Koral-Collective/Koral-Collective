@@ -44,9 +44,10 @@ export function WalkWithUs() {
                   priority
                 />
               </div>
-              <p className="mt-5 text-center font-sans text-base leading-snug text-[#f3e8d2] sm:text-lg">
-                Reach out for bookings and queries
-              </p>
+             <p className="mt-5 text-center font-sans text-base font-semibold leading-snug text-[#f3e8d2] sm:text-lg">
+              <span className="underline underline-offset-4">Contact us</span>
+              <span aria-hidden="true">↗</span>
+            </p>
             </a>
           </div>
         </div>
