@@ -9,48 +9,46 @@ export function WalkWithUs() {
   const siteConfig = getSiteConfig();
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp.phoneE164}`;
 
-  return (
+    return (
     <Section
       as="section"
       aria-labelledby="walk-with-us-heading"
       className="border-b border-[var(--color-brand-primary)] bg-[var(--color-brand-primary)] py-14 text-[var(--color-text-inverse)] sm:py-18 lg:py-24"
     >
       <FootstepTrail>
-        <div className="relative z-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_22rem]">
-          <div>
-            <h2
-              id="walk-with-us-heading"
-              className="text-5xl font-serif font-medium leading-none text-[#f3e8d2] sm:text-6xl lg:text-7xl"
-            >
-              Walk with us
-            </h2>
-
-            <div className="mt-12 sm:mt-14">
-              <EventDetails />
-            </div>
-          </div>
-
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mx-auto w-full max-w-[20rem] self-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3e8d2] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-brand-primary)] lg:sticky lg:top-24 lg:justify-self-end"
-            aria-label="Connect with the koral collective on WhatsApp"
+        <div className="relative z-10">
+          <h2
+            id="walk-with-us-heading"
+            className="text-5xl font-serif font-medium leading-none text-[#f3e8d2] sm:text-6xl lg:text-7xl"
           >
-            <div className="aspect-square w-full bg-[#f3e8d2] p-3">
-              <Image
-                src="/images/branding/whatsapp-qr.png"
-                alt="Scan to connect with the koral collective on WhatsApp"
-                width={520}
-                height={520}
-                className="h-full w-full object-contain"
-                priority
-              />
-            </div>
-            <p className="mt-5 text-center font-sans text-base leading-snug text-[#f3e8d2] sm:text-lg">
-              Reach out for bookings and queries
-            </p>
-          </a>
+            Walk with us
+          </h2>
+
+          <div className="mt-12 grid gap-12 sm:mt-14 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:gap-16 xl:grid-cols-[minmax(0,1fr)_22rem]">
+            <EventDetails />
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-auto w-full max-w-[20rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f3e8d2] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-brand-primary)] lg:sticky lg:top-24 lg:justify-self-end"
+              aria-label="Connect with the koral collective on WhatsApp"
+            >
+              <div className="aspect-square w-full bg-[#f3e8d2] p-3">
+                <Image
+                  src="/images/branding/whatsapp-qr.png"
+                  alt="Scan to connect with the koral collective on WhatsApp"
+                  width={520}
+                  height={520}
+                  className="h-full w-full object-contain"
+                  priority
+                />
+              </div>
+              <p className="mt-5 text-center font-sans text-base leading-snug text-[#f3e8d2] sm:text-lg">
+                Reach out for bookings and queries
+              </p>
+            </a>
+          </div>
         </div>
       </FootstepTrail>
     </Section>
