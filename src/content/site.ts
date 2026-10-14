@@ -16,8 +16,8 @@ export const siteConfig: SiteConfig = {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Offerings", href: "/offerings" },
-  { label: "Team", href: "/team" },
+  { label: "Our offerings", href: "/offerings" },
+  { label: "About us", href: "/team" },
   {
     label: "Book via WhatsApp",
     href: "https://wa.me/919535196043",
