@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { Faqs } from "@/components/home/Faqs";
 import { Section } from "@/components/ui/Section";
 import { OfferingControls } from "@/components/ui/OfferingControls";
 import { getAllExperiences } from "@/content";
@@ -293,7 +292,6 @@ export function OfferingExperience() {
 
         </div>
       </Section>
-      <Faqs />
     </div>
   );
 }

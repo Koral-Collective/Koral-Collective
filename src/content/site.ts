@@ -18,6 +18,7 @@ export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Our offerings", href: "/offerings" },
   { label: "About us", href: "/team" },
+  { label: "FAQs", href: "/faqs" },
   {
     label: "Book via WhatsApp",
     href: "https://wa.me/919535196043",

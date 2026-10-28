@@ -60,7 +60,7 @@ export function SiteHeader() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav aria-label="Main navigation" className="ml-auto mr-8 hidden lg:mr-16 md:block">
+          <nav aria-label="Main navigation" className="ml-auto mr-8 hidden lg:mr-16 lg:block">
             <ul className="flex items-center gap-10 text-xl font-sans font-semibold">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;

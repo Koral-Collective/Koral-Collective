@@ -85,19 +85,16 @@ export function Faqs() {
       id="faqs"
       as="section"
       aria-labelledby="faqs-heading"
-      className="bg-[var(--color-bg-surface)]"
+      className="min-h-screen bg-[var(--color-bg-surface)] pt-28 sm:pt-36 lg:pt-44"
     >
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
         <div>
-          <p className="text-xs font-medium tracking-[0.22em] text-[var(--color-brand-primary)]">
-            Before you arrive
-          </p>
-          <h2
+          <h1
             id="faqs-heading"
             className="mt-3 text-3xl font-serif font-medium text-[var(--color-text-primary)] sm:text-4xl"
           >
-            FAQs
-          </h2>
+            Frequently asked questions
+          </h1>
         </div>
         <div className="divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
           {faqs.map((faq) => (

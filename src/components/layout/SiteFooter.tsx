@@ -28,7 +28,7 @@ export function SiteFooter() {
               <li><Link href="/" className="text-white transition-colors hover:text-white">Home</Link></li>
               <li><Link href="/offerings" className="text-white transition-colors hover:text-white">Offerings</Link></li>
               <li><Link href="/team" className="text-white transition-colors hover:text-white">Team</Link></li>
-              <li><Link href="/#faqs" className="text-white transition-colors hover:text-white">FAQs</Link></li>
+              <li><Link href="/faqs" className="text-white transition-colors hover:text-white">FAQs</Link></li>
             </ul>
           </div>
 
