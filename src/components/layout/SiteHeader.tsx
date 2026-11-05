@@ -42,11 +42,11 @@ export function SiteHeader() {
           {/* Official Logo */}
           <Link
             href="/"
-            className="flex min-w-0 flex-shrink items-center rounded-sm px-1 py-0.5 transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
+            className="flex min-w-0 flex-shrink flex-col items-start rounded-sm px-1 py-0.5 transition-opacity hover:opacity-85 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
             aria-label="Koral Collective — home"
           >
             <Image
-              src="/images/branding/koral-collective-logo-no-strapline.png"
+              src="/images/branding/koral-collective-logo-transparent.png"
               alt="The Koral Collective"
               width={200}
               height={200}

@@ -60,8 +60,6 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
 
   const [openMembers, setOpenMembers] = useState<string[]>([]);
 
-  const allExpanded = memberIds.length > 0 && openMembers.length === memberIds.length;
-
   const toggleMember = (memberId: string) => {
     setOpenMembers((current) =>
       current.includes(memberId)
@@ -70,8 +68,8 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
     );
   };
 
-  const toggleAll = () => {
-    setOpenMembers(allExpanded ? [] : memberIds);
+  const setAllOpen = (shouldOpen: boolean) => {
+    setOpenMembers(shouldOpen ? memberIds : []);
   };
 
   return (
@@ -80,19 +78,28 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
       <div className="flex items-end justify-between gap-6 border-b border-[var(--color-border-strong)] pb-4">
         <h2
           id="team-heading"
-          className="type-h2 font-serif font-medium text-[var(--color-text-primary)]"
+          className="text-3xl font-serif font-medium text-[var(--color-text-primary)] sm:text-4xl"
         >
           The team
         </h2>
 
-        <button
-          type="button"
-          onClick={toggleAll}
-          className="text-xs font-medium tracking-[0.14em] text-[var(--color-text-muted)] underline underline-offset-4 hover:text-[var(--color-brand-primary)]"
-          aria-label={allExpanded ? "Collapse all team member profiles" : "Expand all team member profiles"}
-        >
-          {allExpanded ? "Collapse all" : "Expand all"}
-        </button>
+        <div className="flex gap-4 text-xs font-medium tracking-[0.14em] text-[var(--color-text-muted)]">
+          <button
+            type="button"
+            onClick={() => setAllOpen(true)}
+            className="underline underline-offset-4 hover:text-[var(--color-brand-primary)]"
+          >
+            Expand all
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setAllOpen(false)}
+            className="underline underline-offset-4 hover:text-[var(--color-brand-primary)]"
+          >
+            Collapse all
+          </button>
+        </div>
       </div>
 
       {/* Team groups */}
@@ -103,7 +110,7 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
         >
           {/* Group label */}
           <div className="pt-8 lg:pr-8">
-            <h3 className="type-label font-medium tracking-[0.18em] text-[var(--color-brand-primary)]">
+            <h3 className="text-xs font-medium tracking-[0.18em] text-[var(--color-brand-primary)]">
               {group.title}
             </h3>
           </div>
@@ -121,7 +128,7 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
                 >
                   {/* Member header */}
                   <div className="flex items-center justify-between gap-6 py-5 sm:py-6">
-                    <h4 className="font-serif type-h3 text-[var(--color-text-primary)]">
+                    <h4 className="font-serif text-2xl text-[var(--color-text-primary)] sm:text-3xl">
                       {member.name}
                     </h4>
 
@@ -146,17 +153,17 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
                     <div className="grid gap-8 lg:grid-cols-[1fr_15rem] lg:gap-12">
                       {/* Bio */}
                       <div className="max-w-2xl">
-                        <p className="type-caption font-medium text-left text-[var(--color-brand-primary)]">
+                        <p className="text-sm font-medium text-[var(--color-brand-primary)] sm:text-base">
                           {member.role}
                         </p>
 
                         {member.details ? (
-                          <p className="mt-1 type-caption text-left text-[var(--color-text-muted)]">
+                          <p className="mt-1 text-sm text-[var(--color-text-muted)]">
                             {member.details}
                           </p>
                         ) : null}
 
-                        <p className="mt-5 type-body text-left leading-relaxed text-[var(--color-text-muted)]">
+                        <p className="mt-5 text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
                           {member.bio}
                         </p>
                       </div>

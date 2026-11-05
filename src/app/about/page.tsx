@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="offerings-parchment">
-      <Container className="page-top-spacing pb-16 sm:pb-24">
-        <h1 className="type-h1 font-serif font-medium text-[var(--color-text-primary)]">{about.title}</h1>
-        <p className="mt-4 max-w-2xl type-body text-[var(--color-text-muted)]">{about.intro}</p>
+      <Container className="py-12">
+        <h1 className="text-3xl font-medium">{about.title}</h1>
+        <p className="mt-4 max-w-2xl text-neutral-600">{about.intro}</p>
       </Container>
     </div>
   );
