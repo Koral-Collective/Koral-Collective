@@ -20,7 +20,7 @@ export function SiteFooter() {
             </p>
           </div>
 
-          <div>
+          <div className="text-left">
             <p className="mb-4 text-xs font-medium tracking-[0.2em] text-white">
               Quick links
             </p>
@@ -32,7 +32,7 @@ export function SiteFooter() {
             </ul>
           </div>
 
-          <div>
+          <div className="text-left">
             <p className="mb-4 text-xs font-medium tracking-[0.2em] text-white">
               Connect
             </p>

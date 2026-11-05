@@ -52,3 +52,58 @@ h6 {
   outline: 2px solid var(--color-brand-primary);
   outline-offset: 2px;
 }
+
+/* ─── Semantic typography utilities ────────────────────────────────────────
+ * Apply these classes to heading/body elements to enforce the design-system
+ * scale without scattering ad-hoc Tailwind size classes everywhere.
+ * Responsive font-size is handled via the tokens (which use @media internally).
+ * ─────────────────────────────────────────────────────────────────────────── */
+.type-h1 {
+  font-size: var(--text-h1);
+  line-height: var(--lh-heading);
+}
+
+.type-h2 {
+  font-size: var(--text-h2);
+  line-height: var(--lh-heading);
+}
+
+.type-h3 {
+  font-size: var(--text-h3);
+  line-height: var(--lh-heading);
+}
+
+.type-body {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+}
+
+.type-caption {
+  font-size: var(--text-caption);
+  line-height: var(--lh-body);
+}
+
+.type-label {
+  font-size: var(--text-label);
+  line-height: var(--lh-body);
+}
+
+/* ─── Page-level top spacing ────────────────────────────────────────────────
+ * Applied to the outermost wrapper of every interior page so that all pages
+ * clear the fixed header by the same amount.  The homepage hero is excluded.
+ * ─────────────────────────────────────────────────────────────────────────── */
+.page-top-spacing {
+  padding-top: var(--page-top);
+}
+
+@media (min-width: 640px) {
+  .page-top-spacing {
+    padding-top: var(--page-top-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-top-spacing {
+    padding-top: var(--page-top-lg);
+  }
+}

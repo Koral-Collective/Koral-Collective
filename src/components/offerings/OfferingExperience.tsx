@@ -163,11 +163,11 @@ export function OfferingExperience() {
         id="offerings"
         as="section"
         aria-labelledby="offerings-heading"
-        className="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] pt-24 sm:pt-32 lg:pt-36"
+        className="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] page-top-spacing"
       >
         <div className="space-y-10">
           <div className="max-w-2xl">
-            <h1 id="offerings-heading" className="text-4xl font-serif font-medium leading-none text-[var(--color-text-primary)] sm:text-6xl">Offerings</h1>
+            <h1 id="offerings-heading" className="type-h1 font-serif font-medium text-[var(--color-text-primary)]">Offerings</h1>
           </div>
 
           {/* Duration legend */}
@@ -257,10 +257,10 @@ export function OfferingExperience() {
                 </div>
               </div>
 
-              <p className="mt-6 text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">{activeTrail.description}</p>
+              <p className="mt-6 type-body leading-relaxed text-[var(--color-text-muted)]">{activeTrail.description}</p>
 
-              <p className="mt-6 text-sm font-semibold text-[var(--color-text-primary)]">Highlights along the trail:</p>
-              <ul className="mt-3 space-y-2 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+              <p className="mt-6 type-body font-semibold text-[var(--color-text-primary)]">Highlights along the trail:</p>
+              <ul className="mt-3 space-y-2 type-body leading-relaxed text-[var(--color-text-muted)]">
                 {activeTrail.highlights.map((highlight) => (
                   <li key={highlight} className="flex gap-2">
                     <span aria-hidden="true">•</span>
