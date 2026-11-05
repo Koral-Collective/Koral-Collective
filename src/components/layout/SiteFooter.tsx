@@ -73,7 +73,6 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-white pt-6 text-xs text-white sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <p>Experiential digital presence</p>
         </div>
       </Container>
     </footer>
