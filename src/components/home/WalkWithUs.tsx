@@ -73,6 +73,13 @@ const WALK_EVENTS: WalkEvent[] = [
     time: "8:00 - 10:00 am",
     price: "Rs 1600 per person",
   },
+   {
+    date: "Nov 9th, Monday",
+    trail: "Karkala trail",
+    lead: "architect and photographer Shravya",
+    time: "2:30 - 6:30 pm",
+    price: "Rs 5000 per person",
+  },
   {
     date: "Nov 15th, Sunday",
     trail: "Barkur trail",
