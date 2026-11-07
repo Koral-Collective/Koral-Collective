@@ -20,15 +20,14 @@ export function HeroStage() {
         />
       </div>
 
-      {/* Desktop banner is a pre-cropped derivative of the original artwork.
-          It preserves the full width and lower landscape without CSS cropping. */}
+      {/* Desktop artwork preserves its complete natural composition. */}
       <div className="relative z-0 hidden w-full leading-none md:block">
         <Image
-          src="/images/tulunadu-desktop-hero-banner.png"
+          src="/images/tulunadu-desktop-hero.png"
           alt=""
           sizes="100vw"
           width={1996}
-          height={754}
+          height={1314}
           className="block h-auto w-full"
           priority
           aria-hidden="true"
