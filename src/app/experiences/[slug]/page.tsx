@@ -78,7 +78,7 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
           aria-hidden="true"
         />
 
-        <div className="relative z-10 px-6 py-20 sm:py-28 lg:py-36 max-w-4xl mx-auto">
+        <div className="relative z-10 mx-auto max-w-4xl px-6 pb-20 pt-32 sm:pb-28 sm:pt-40 lg:pb-36">
           {/* Back navigation — visible inside the hero */}
           {parentOffering && (
             <Link
@@ -103,7 +103,7 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
           </h1>
 
           {/* Teaser */}
-          <p className="mt-6 max-w-2xl text-base text-white/80 leading-relaxed sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80">
             {experience.teaser}
           </p>
 
@@ -148,7 +148,7 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
               >
                 About this experience
               </h2>
-              <p className="text-base leading-relaxed text-[var(--color-text-primary)] sm:text-lg">
+              <p className="text-base leading-relaxed text-[var(--color-text-primary)]">
                 {experience.description}
               </p>
             </section>
@@ -166,7 +166,7 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
                   {experience.highlights.map((highlight, i) => (
                     <li
                       key={i}
-                      className="flex items-start gap-3 text-sm text-[var(--color-text-primary)] sm:text-base"
+                      className="flex items-start gap-3 text-base text-[var(--color-text-primary)]"
                     >
                       <span
                         className="mt-1.5 flex-shrink-0 h-1.5 w-1.5 rounded-full bg-[var(--color-brand-primary)]"
@@ -203,7 +203,7 @@ export default async function ExperiencePage({ params }: ExperiencePageProps) {
                 <h3 className="font-serif text-xl font-medium text-[var(--color-text-primary)] leading-snug">
                   Enquire about {experience.title}
                 </h3>
-                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                <p className="text-base leading-relaxed text-[var(--color-text-muted)]">
                   Reach out directly to learn more, check availability, or arrange your experience. We respond personally to every enquiry.
                 </p>
               </div>

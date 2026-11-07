@@ -87,7 +87,7 @@ export function ExplorerCard({
             ) : null}
           </div>
 
-          <p className="mt-6 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+          <p className="mt-6 text-base leading-relaxed text-[var(--color-text-muted)]">
             {experience.description}
           </p>
 
@@ -101,7 +101,7 @@ export function ExplorerCard({
                 {experience.highlights.slice(0, 4).map((highlight) => (
                   <li
                     key={highlight}
-                    className="flex gap-2 text-xs leading-relaxed text-[var(--color-text-muted)]"
+                    className="flex gap-2 text-base leading-relaxed text-[var(--color-text-muted)]"
                   >
                     <span
                       className="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-[var(--color-brand-primary)]"

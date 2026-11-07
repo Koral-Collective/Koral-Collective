@@ -78,23 +78,39 @@ const faqs: FaqItem[] = [
 ];
 
 export function Faqs() {
-  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+  const [openQuestions, setOpenQuestions] = useState<string[]>([]);
+  const allQuestionsOpen = openQuestions.length === faqs.length;
+
+  const toggleQuestion = (question: string) => {
+    setOpenQuestions((current) =>
+      current.includes(question)
+        ? current.filter((item) => item !== question)
+        : [...current, question],
+    );
+  };
 
   return (
     <Section
       id="faqs"
       as="section"
       aria-labelledby="faqs-heading"
-      className="min-h-screen bg-[var(--color-bg-surface)] pt-28 sm:pt-36 lg:pt-44"
+      className="min-h-screen bg-[var(--color-bg-surface)] pt-32 sm:pt-40"
     >
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
         <div>
           <h1
             id="faqs-heading"
-            className="mt-3 text-3xl font-serif font-medium text-[var(--color-text-primary)] sm:text-4xl"
+            className="mt-4 font-serif font-medium text-[var(--color-text-primary)]"
           >
             Frequently asked questions
           </h1>
+          <button
+            type="button"
+            onClick={() => setOpenQuestions(allQuestionsOpen ? [] : faqs.map((faq) => faq.question))}
+            className="mt-6 text-xs font-medium tracking-[0.14em] text-[var(--color-text-muted)] underline underline-offset-4 transition-colors hover:text-[var(--color-brand-primary)]"
+          >
+            {allQuestionsOpen ? "Collapse all" : "Expand all"}
+          </button>
         </div>
         <div className="divide-y divide-[var(--color-border-subtle)] border-y border-[var(--color-border-subtle)]">
           {faqs.map((faq) => (
@@ -102,17 +118,17 @@ export function Faqs() {
               <button
                 type="button"
                 className="flex w-full items-center justify-between gap-6 text-left font-serif text-xl text-[var(--color-text-primary)]"
-                aria-expanded={openQuestion === faq.question}
-                onClick={() => setOpenQuestion(openQuestion === faq.question ? null : faq.question)}
+                aria-expanded={openQuestions.includes(faq.question)}
+                onClick={() => toggleQuestion(faq.question)}
               >
                 {faq.question}
-                <span className={`font-sans text-2xl font-light text-[var(--color-brand-primary)] transition-transform duration-300 ${openQuestion === faq.question ? "rotate-45" : ""}`} aria-hidden="true">
+                <span className={`font-sans text-2xl font-light text-[var(--color-brand-primary)] transition-transform duration-300 ${openQuestions.includes(faq.question) ? "rotate-45" : ""}`} aria-hidden="true">
                   +
                 </span>
               </button>
-              <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${openQuestion === faq.question ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+              <div className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${openQuestions.includes(faq.question) ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                 <div className="min-h-0 overflow-hidden">
-                  <div className="max-w-2xl pt-3 pr-8 text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base space-y-3">
+                  <div className="max-w-2xl space-y-3 pt-3 pr-8 text-base leading-relaxed text-[var(--color-text-muted)]">
                     {faq.answer.map((paragraph, i) => (
                       <p key={i}>{paragraph}</p>
                     ))}

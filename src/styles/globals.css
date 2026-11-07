@@ -28,6 +28,8 @@ body {
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
   font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
 }
 
 h1,
@@ -37,6 +39,23 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
+}
+
+/* Semantic heading scale used throughout the public site. Local utility classes
+   may control color, weight, and spacing, but not the shared hierarchy. */
+h1 {
+  font-size: var(--font-size-h1) !important;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--font-size-h2) !important;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: var(--font-size-h3) !important;
+  line-height: 1.25;
 }
 
 .offerings-parchment {

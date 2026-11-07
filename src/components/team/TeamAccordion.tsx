@@ -59,6 +59,7 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
   );
 
   const [openMembers, setOpenMembers] = useState<string[]>([]);
+  const areAllMembersOpen = memberIds.length > 0 && openMembers.length === memberIds.length;
 
   const toggleMember = (memberId: string) => {
     setOpenMembers((current) =>
@@ -86,18 +87,10 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
         <div className="flex gap-4 text-xs font-medium tracking-[0.14em] text-[var(--color-text-muted)]">
           <button
             type="button"
-            onClick={() => setAllOpen(true)}
+            onClick={() => setAllOpen(!areAllMembersOpen)}
             className="underline underline-offset-4 hover:text-[var(--color-brand-primary)]"
           >
-            Expand all
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setAllOpen(false)}
-            className="underline underline-offset-4 hover:text-[var(--color-brand-primary)]"
-          >
-            Collapse all
+            {areAllMembersOpen ? "Collapse all" : "Expand all"}
           </button>
         </div>
       </div>
@@ -163,7 +156,7 @@ export function TeamAccordion({ groups }: TeamAccordionProps) {
                           </p>
                         ) : null}
 
-                        <p className="mt-5 text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
+                        <p className="mt-5 text-base leading-relaxed text-[var(--color-text-muted)]">
                           {member.bio}
                         </p>
                       </div>

@@ -38,7 +38,7 @@ export function ExplorerStage({
   if (!activeExperience) {
     return (
       <section className="py-20 text-center">
-        <p className="text-sm text-[var(--color-text-muted)]">
+        <p className="text-base text-[var(--color-text-muted)]">
           Experiences coming soon.
         </p>
       </section>

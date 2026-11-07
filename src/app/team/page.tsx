@@ -15,10 +15,10 @@ export default function TeamPage() {
   return (
     <Container size="default" className="pb-16 pt-32 sm:pb-24 sm:pt-40">
       <header className="max-w-4xl border-b border-[var(--color-border-strong)] pb-12 sm:pb-16">
-        <h1 className="mt-4 text-5xl font-serif font-medium leading-none text-[var(--color-text-primary)] sm:text-7xl">
+        <h1 className="mt-4 font-serif font-medium text-[var(--color-text-primary)]">
           {team.title}
         </h1>
-        <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-[var(--color-text-muted)] sm:text-lg">
+        <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-[var(--color-text-muted)]">
           <p><strong>The koral collective</strong>{team.intro[0].slice("The koral collective".length)}</p>
           <p>{team.intro[1]}</p>
           <p>

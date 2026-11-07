@@ -39,7 +39,7 @@ export function CircularExplorer({
 
   return (
     <main className="bg-[var(--color-bg-base)]">
-      <Container size="wide" className="py-10 sm:py-14 lg:py-16">
+      <Container size="wide" className="pb-10 pt-32 sm:pb-14 sm:pt-40 lg:pb-16">
         {/* Intro */}
         <header className="border-b border-[var(--color-border-subtle)] pb-8 sm:pb-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -59,7 +59,7 @@ export function CircularExplorer({
             {offering.title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-text-muted)]">
             {offering.description}
           </p>
         </header>

@@ -15,7 +15,7 @@ export function SiteFooter() {
             <p className="font-serif text-3xl font-medium text-white">
               {siteConfig.name}
             </p>
-            <p className="max-w-sm text-sm leading-relaxed text-white">
+            <p className="max-w-sm text-base leading-relaxed text-white">
               {siteConfig.tagline}
             </p>
           </div>

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <Container className="py-12">
-      <h1 className="text-3xl font-medium">{gallery.title}</h1>
+    <Container className="pb-12 pt-32 sm:pb-16 sm:pt-40">
+      <h1 className="font-medium">{gallery.title}</h1>
       <ul className="mt-8 grid gap-4 sm:grid-cols-2">
         {gallery.items.map((item) => (
           <li key={item.id} className="rounded border border-neutral-200 p-4">

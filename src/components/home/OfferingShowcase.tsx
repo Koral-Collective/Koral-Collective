@@ -93,7 +93,7 @@ export function OfferingShowcase() {
   return (
     <section
       aria-labelledby="offering-showcase-heading"
-      className="offerings-parchment overflow-hidden border-b border-[var(--color-border-subtle)] py-14 sm:py-18 lg:py-24"
+      className="offerings-parchment overflow-hidden border-b border-[var(--color-border-subtle)] py-12 sm:py-16 lg:py-20"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-end justify-between gap-6 sm:mb-10">

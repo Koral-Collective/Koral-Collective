@@ -13,7 +13,7 @@ export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const navItems = getNavItems();
+  const navItems = getNavItems().filter((item) => item.href !== "/");
   const isHome = pathname === "/";
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export function SiteHeader() {
           <button
             type="button"
             className={cn(
-              "inline-flex items-center justify-center rounded-md p-3 text-[#022e01] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#022e01] md:hidden",
+              "inline-flex items-center justify-center rounded-md p-3 text-[#022e01] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#022e01] lg:hidden",
               "hover:bg-[#022e01]/10"
             )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -118,7 +118,7 @@ export function SiteHeader() {
 
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
-          <nav id="mobile-menu" aria-label="Mobile main navigation" className="border-t border-[#022e01]/20 py-3 md:hidden">
+          <nav id="mobile-menu" aria-label="Mobile main navigation" className="border-t border-[#022e01]/20 py-3 lg:hidden">
             <ul className="flex flex-col space-y-1 px-2">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;

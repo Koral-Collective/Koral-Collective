@@ -178,7 +178,7 @@ export default function OfferingsPage() {
       {/* -------------------------------------------------
           INTRO
       -------------------------------------------------- */}
-      <section className="px-6 pb-12 pt-16 md:px-10 md:pb-16 md:pt-24">
+      <section className="px-6 pb-12 pt-32 sm:pt-40 md:px-10 md:pb-16">
         <div className="mx-auto max-w-7xl">
           <p className="mb-4 text-[11px] font-semibold tracking-[0.28em] text-[#7c352f]">
             Our offerings
@@ -191,7 +191,7 @@ export default function OfferingsPage() {
               <span className="italic">across Tulunadu.</span>
             </h1>
 
-            <p className="max-w-sm text-sm leading-6 text-[#6d5547] md:pb-2">
+            <p className="max-w-sm text-base leading-6 text-[#6d5547] md:pb-2">
               Walk through places where history, architecture, faith, food,
               trade and everyday life continue to shape the landscape.
             </p>
@@ -382,7 +382,7 @@ export default function OfferingsPage() {
                 <span>{activeTrail.price}</span>
               </div>
 
-              <p className="mt-8 max-w-xl text-sm leading-7 text-[#59443a] md:text-base">
+              <p className="mt-8 max-w-xl text-base leading-7 text-[#59443a]">
                 {activeTrail.description}
               </p>
 
@@ -395,7 +395,7 @@ export default function OfferingsPage() {
                   {activeTrail.highlights.map((highlight) => (
                     <li
                       key={highlight}
-                      className="flex gap-3 border-t border-[#2e211b]/10 pt-2 text-sm leading-6 text-[#59443a]"
+                      className="flex gap-3 border-t border-[#2e211b]/10 pt-2 text-base leading-6 text-[#59443a]"
                     >
                       <span className="text-[#7c352f]">✦</span>
                       <span>{highlight}</span>
@@ -475,7 +475,7 @@ export default function OfferingsPage() {
               </h2>
             </div>
 
-            <p className="max-w-md text-sm leading-6 text-[#6d5547]">
+            <p className="max-w-md text-base leading-6 text-[#6d5547]">
               Select a trail from the index to move the map and featured
               experience together.
             </p>
