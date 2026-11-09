@@ -94,7 +94,7 @@ export function Faqs() {
       id="faqs"
       as="section"
       aria-labelledby="faqs-heading"
-      className="min-h-screen bg-[var(--color-bg-surface)] pt-32 sm:pt-40"
+      className="min-h-screen bg-[var(--color-bg-base)] pt-32 sm:pt-40 lg:pt-40"
     >
       <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
         <div>

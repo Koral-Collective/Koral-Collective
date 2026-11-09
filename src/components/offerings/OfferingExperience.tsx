@@ -163,7 +163,7 @@ export function OfferingExperience() {
         id="offerings"
         as="section"
         aria-labelledby="offerings-heading"
-        className="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] pt-32 sm:pt-40"
+        className="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-base)] pt-32 sm:pt-40 lg:pt-40"
       >
         <div className="space-y-10">
           <div className="max-w-2xl">
