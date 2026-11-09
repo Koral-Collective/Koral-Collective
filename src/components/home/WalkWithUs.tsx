@@ -2,14 +2,16 @@ import Image from "next/image";
 
 import { Section } from "@/components/ui/Section";
 import { getSiteConfig } from "@/content";
+import { getPublishedEvents } from "@/lib/events";
 
 import { FootstepTrail } from "./FootstepTrail";
 
-export function WalkWithUs() {
+export async function WalkWithUs() {
   const siteConfig = getSiteConfig();
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp.phoneE164}`;
+  const events = await getPublishedEvents();
 
-    return (
+  return (
     <Section
       as="section"
       aria-labelledby="walk-with-us-heading"
@@ -25,7 +27,7 @@ export function WalkWithUs() {
           </h2>
 
           <div className="mt-12 grid gap-12 sm:mt-14 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start lg:gap-16 xl:grid-cols-[minmax(0,1fr)_22rem]">
-            <EventDetails />
+            <EventDetails events={events} />
 
             <a
               href={whatsappUrl}
@@ -56,54 +58,31 @@ export function WalkWithUs() {
   );
 }
 
-type WalkEvent = {
-  date: string;
-  trail: string;
-  lead: string;
-  time: string;
-  price?: string;
-  soldOut?: boolean;
-};
+type PublishedEvent = Awaited<ReturnType<typeof getPublishedEvents>>[number];
 
-const WALK_EVENTS: WalkEvent[] = [
-  {
-    date: "Nov 1st, Sunday",
-    trail: "Ratha Beedi trail",
-    lead: "architect Sharvani",
-    time: "8:00 - 10:00 am",
-    price: "₹1600 per person (Indian nationals), ₹2400 per person (Foreign nationals)",
-  },
-   {
-    date: "Nov 9th, Monday",
-    trail: "Karkala trail",
-    lead: "architect and photographer Shravya",
-    time: "2:30 - 6:30 pm",
-    price: "₹5000 per person (Indian nationals), ₹7000 per person (Foreign nationals)",
-  },
-  {
-    date: "Nov 15th, Sunday",
-    trail: "Barkur trail",
-    lead: "architect and photographer Shravya",
-    time: "8:30 am - 2:30 pm",
-    price: "₹5000 per person (Indian nationals), ₹7000 per person (Foreign nationals)",
-  },
-  {
-    date: "Nov 22nd, Sunday",
-    trail: "Shirva trail",
-    lead: "archeologist T Murugeshi",
-    time: "8:30 am - 2:30 pm",
-    price: "₹5000 per person (Indian nationals), ₹7000 per person (Foreign nationals)",
-  },
-  {
-    date: "Nov 29th, Sunday",
-    trail: "Kallianpur trail",
-    lead: "archeologist T Murugeshi and historian Shreyas",
-    time: "4:00 - 6:00 pm",
-    price: "₹1600 per person (Indian nationals), ₹2400 per person (Foreign nationals)",
-  },
-];
+function formatEventDate(value: Date) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    day: "numeric",
+    month: "short",
+    weekday: "long",
+    timeZone: "Asia/Kolkata",
+  }).formatToParts(value);
+  const day = Number(parts.find((part) => part.type === "day")?.value);
+  const suffix = day % 100 >= 11 && day % 100 <= 13
+    ? "th"
+    : ({ 1: "st", 2: "nd", 3: "rd" } as Record<number, string>)[day] ?? "th";
+  const month = parts.find((part) => part.type === "month")?.value;
+  const weekday = parts.find((part) => part.type === "weekday")?.value;
+  return `${month} ${day}${suffix}, ${weekday}`;
+}
 
-function EventDetails() {
+function formatEventTime(value: string) {
+  const [hourText, minute] = value.split(":");
+  const hour = Number(hourText);
+  return `${hour % 12 || 12}:${minute} ${hour >= 12 ? "pm" : "am"}`;
+}
+
+function EventDetails({ events }: { events: PublishedEvent[] }) {
   return (
     <section aria-labelledby="event-details-heading">
       <h3
@@ -112,30 +91,25 @@ function EventDetails() {
       >
         Event details
       </h3>
+      {events.length === 0 ? (
+        <p className="mt-6 text-base leading-relaxed text-[#f3e8d2]">New event dates will be announced soon.</p>
+      ) : null}
       <ul className="mt-6 space-y-8">
-        {WALK_EVENTS.map((event) => (
-          <li
-            key={`${event.date}-${event.trail}`}
-            className={event.soldOut ? "opacity-80" : undefined}
-          >
+        {events.map((event) => (
+          <li key={event.id}>
             <p className="font-sans text-lg font-semibold text-[#f3e8d2] sm:text-xl">
-              {event.date}
+              {formatEventDate(event.eventDate)}
             </p>
             <p className="mt-2 font-sans text-base leading-relaxed text-[#f3e8d2] sm:text-lg">
-              {event.trail}, led by {event.lead}
+              {event.title} · {event.trail}, led by {event.guide}
             </p>
             <p className="mt-1 font-sans text-base leading-relaxed text-[#d8c09e] sm:text-lg">
-              {event.time}
+              {formatEventTime(event.startTime)} - {formatEventTime(event.endTime)}
             </p>
-            {event.soldOut ? (
-              <p className="mt-2 inline-block border border-[#d8c09e] px-2 py-0.5 font-sans text-sm font-semibold uppercase tracking-wide text-[#d8c09e]">
-                Sold out
-              </p>
-            ) : (
-              <p className="mt-1 font-sans text-base font-semibold leading-relaxed text-[#f3e8d2] sm:text-lg">
-                {event.price}
-              </p>
-            )}
+            <p className="mt-1 font-sans text-base font-semibold leading-relaxed text-[#f3e8d2] sm:text-lg">
+              ₹{event.indianPrice.toLocaleString("en-IN")} per person (Indian nationals), ₹{event.foreignPrice.toLocaleString("en-IN")} per person (Foreign nationals)
+            </p>
+            {event.description ? <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#d8c09e]">{event.description}</p> : null}
           </li>
         ))}
       </ul>
