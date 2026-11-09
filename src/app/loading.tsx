@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Loading() {
   return (
     <main className="fixed inset-0 z-[99999] flex items-center justify-center overflow-hidden bg-[#f5ecdd]">
@@ -124,19 +126,21 @@ export default function Loading() {
 
         <div className="relative z-10 h-[150px] w-[220px]">
 
-          {/* Ratha */}
-          <div className="absolute left-0 top-1/2 animate-ratha">
-            <img
-              src="https://res.cloudinary.com/ev7y5xh0/image/upload/v1789391223/Ratha_details.png"
-              alt=""
-              aria-hidden="true"
-              className="w-[180px] select-none object-contain"
-              style={{
-                filter:
-                  "brightness(0) saturate(100%) invert(31%) sepia(28%) saturate(1200%) hue-rotate(335deg) brightness(88%) contrast(90%)",
-              }}
-            />
-          </div>
+        {/* Ratha */}
+<div className="absolute inset-0 z-20 flex items-center justify-center">
+  <div className="relative h-[160px] w-[160px] -translate-y-[15px] animate-ratha-float overflow-hidden">
+    <Image
+      src="https://ik.imagekit.io/abr6j2ge8/map-icons/Rathabeedi_with%20name.png?updatedAt=1791037663165"
+      alt=""
+      width={180}
+      height={180}
+      priority
+      unoptimized
+      aria-hidden="true"
+      className="absolute left-1/2 top-0 h-[185px] w-[185px] max-w-none -translate-x-1/2 object-contain"
+    />
+  </div>
+</div>
 
           {/* Loader track */}
           <div className="absolute bottom-[4px] left-1/2 h-[1px] w-[190px] -translate-x-1/2 bg-[#c49a4a]/30" />
