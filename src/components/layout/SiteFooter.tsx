@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { getSiteConfig } from "@/content";
 import { Container } from "@/components/ui/Container";
 
@@ -20,19 +18,7 @@ export function SiteFooter() {
             </p>
           </div>
 
-          <div>
-            <p className="mb-4 text-xs font-medium tracking-[0.2em] text-white">
-              Quick links
-            </p>
-            <ul className="space-y-3 text-sm">
-              <li><Link href="/" className="text-white transition-colors hover:text-white">Home</Link></li>
-              <li><Link href="/offerings" className="text-white transition-colors hover:text-white">Offerings</Link></li>
-              <li><Link href="/team" className="text-white transition-colors hover:text-white">Team</Link></li>
-              <li><Link href="/faqs" className="text-white transition-colors hover:text-white">FAQs</Link></li>
-            </ul>
-          </div>
-
-          <div>
+          <div className="text-left">
             <p className="mb-4 text-xs font-medium tracking-[0.2em] text-white">
               Connect
             </p>

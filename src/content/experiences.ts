@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Ratha%20beedi.jpg",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Ratha%20beedi.jpg?updatedAt=1795533512025",
       alt: "Ratha Beedi trail in Udupi",
     },
 
@@ -76,7 +76,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Kaliyanpur.jpeg",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Kaliyanpur.jpeg?updatedAt=1795533494907",
       alt: "Kallianpur trail in coastal Karnataka",
     },
 
@@ -118,7 +118,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Barkur.jpeg",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Barkur.jpeg?updatedAt=1795533503525",
       alt: "Barkur heritage trail in Tulunadu",
     },
 
@@ -160,7 +160,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Basrur.jpeg",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Basrur.jpeg?updatedAt=1795533508206",
       alt: "Basrur heritage trail",
     },
 
@@ -202,7 +202,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Moodbidri%20.jpg",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Moodbidri%20.jpg?updatedAt=1795533513416",
       alt: "Moodbidri Jain heritage trail",
     },
 
@@ -244,7 +244,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Gomateshwara%20Karkala.png",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Gomateshwara%20Karkala.png?updatedAt=1795533520572",
       alt: "Karkala Jain heritage trail",
     },
 
@@ -286,7 +286,7 @@ export const experiences: Experience[] = [
     },
 
     image: {
-      src: "https://ik.imagekit.io/abr6j2ge8/Shirva.JPG",
+      src: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/carousal/Shirva.JPG?updatedAt=1795533509524",
       alt: "Shirva cultural walking trail",
     },
 

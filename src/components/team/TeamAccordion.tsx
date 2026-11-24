@@ -16,41 +16,41 @@ type TeamAccordionProps = {
  */
 const teamImages: Record<string, string> = {
   "Shreyas Kolpe":
-    "https://ik.imagekit.io/abr6j2ge8/team/Shreyas.jpg?updatedAt=1791037557910",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Shreyas.jpg?updatedAt=1795533432112",
 
   "Sharvani Bhat":
-    "https://ik.imagekit.io/abr6j2ge8/team/Sharvani.jpg.jpeg?updatedAt=1791037557226",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Sharvani.jpg.jpeg?updatedAt=1795533430976",
 
   "Sriram K":
-    "https://ik.imagekit.io/abr6j2ge8/team/Sriram.png?updatedAt=1791037553023",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Sriram.png?updatedAt=1795533419368",
 
   Vishwas:
-    "https://ik.imagekit.io/abr6j2ge8/team/Vishwas.jpeg?updatedAt=1791037552849",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Vishwas.jpeg?updatedAt=1795533424904",
 
   "Murugeshi T":
-    "https://ik.imagekit.io/abr6j2ge8/team/Murugeshi%20bnw.jpg?updatedAt=1791037557468",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Murugeshi%20bnw.jpg?updatedAt=1795533425290",
 
   // Existing portrait for Thushar.
   Thushar:
-    "https://ik.imagekit.io/abr6j2ge8/team/thushar.jpeg?updatedAt=1791038141714",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/thushar.jpeg?updatedAt=1795533424978",
 
   "Shravya Hegde":
-    "https://ik.imagekit.io/abr6j2ge8/team/Shravya.jpg.jpeg?updatedAt=1791037553081",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Shravya.jpg.jpeg?updatedAt=1795533419155",
 
   "Raisah Dilkush":
-    "https://ik.imagekit.io/abr6j2ge8/team/Raisah.jpeg?updatedAt=1791037553094",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Raisah.jpeg?updatedAt=1795533419106",
 
   "Meghna Rohit Amin":
-    "https://ik.imagekit.io/abr6j2ge8/team/Meghna.png?updatedAt=1791037552936",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Meghna.png?updatedAt=1795533425128",
 
   "Aparna Ashokan":
-    "https://ik.imagekit.io/abr6j2ge8/team/Aparna.jpeg?updatedAt=1791037552805",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Aparna.jpeg?updatedAt=1795533419087",
 
   "Aaina Amin":
-    "https://ik.imagekit.io/abr6j2ge8/team/Aaina_Amin.jpg?updatedAt=1791037553082",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Aaina_Amin.jpg?updatedAt=1795533425209",
 
   "Laxmi Priya":
-    "https://ik.imagekit.io/abr6j2ge8/team/Laxmi.jpg?updatedAt=1791037552822",
+    "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/team/Laxmi.jpg?updatedAt=1795533419182",
 };
 
 export function TeamAccordion({ groups }: TeamAccordionProps) {

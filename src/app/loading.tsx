@@ -130,7 +130,7 @@ export default function Loading() {
 <div className="absolute inset-0 z-20 flex items-center justify-center">
   <div className="relative h-[160px] w-[160px] -translate-y-[15px] animate-ratha-float overflow-hidden">
     <Image
-      src="https://ik.imagekit.io/abr6j2ge8/map-icons/Rathabeedi_with%20name.png?updatedAt=1791037663165"
+      src="https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Rathabeedi_with%20name.png?updatedAt=1795533468837"
       alt=""
       width={180}
       height={180}

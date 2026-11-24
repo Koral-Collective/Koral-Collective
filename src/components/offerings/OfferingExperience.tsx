@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { CarouselArrows } from "@/components/ui/CarouselControls";
 import { Section } from "@/components/ui/Section";
-import { OfferingControls } from "@/components/ui/OfferingControls";
-import { getAllExperiences } from "@/content";
+import { getAllExperiences, getSiteConfig } from "@/content";
 
 type Trail = {
   name: string;
@@ -35,7 +36,7 @@ const trails: Trail[] = [
       "Vasco da Gama and the Portuguese connection",
       "The Church of Nossa Senhora de Milagres",
     ],
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Kallianpur_with%20name.png?updatedAt=1791037663161",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Kallianpur_with%20name.png?updatedAt=1795533468851",
     position: { left: "34%", top: "45%" },
   },
   {
@@ -51,7 +52,7 @@ const trails: Trail[] = [
       "Generations of shops, eateries, and everyday practice",
       "The buildings and facades that hold the temple town’s memory",
     ],
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Rathabeedi_with%20name.png?updatedAt=1791037663165",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Rathabeedi_with%20name.png?updatedAt=1795533468837",
     position: { left: "34%", top: "56%" },
   },
   {
@@ -68,7 +69,7 @@ const trails: Trail[] = [
       "The Jain Temple Complex (Kathale Basadi)",
     ],
     note: "*Transport by chartered bus is provided between stops. Walking is required at each location.",
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Barkur_with%20name.png?updatedAt=1791037663439",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Barkur_with%20name.png?updatedAt=1795533468770",
     position: { left: "35%", top: "32%" },
   },
   {
@@ -84,7 +85,7 @@ const trails: Trail[] = [
       "The Shree Mahatobar Mahalingeshwara Temple",
     ],
     note: "*Transport by chartered bus is provided between stops. Walking is required at each location.",
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Basrur_with%20name.png?updatedAt=1791037662829",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Basrur_with%20name.png?updatedAt=1795533468908",
     position: { left: "30%", top: "15%" },
   },
   {
@@ -100,7 +101,7 @@ const trails: Trail[] = [
       "The setting of the Siri Paddana (folk epic)",
     ],
     note: "*Transport by chartered bus is provided between stops. Walking is required at each location.",
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Shirva_with%20name.png?updatedAt=1791037662884",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Shirva_with%20name.png?updatedAt=1795533468996",
     position: { left: "45%", top: "68%" },
   },
   {
@@ -116,7 +117,7 @@ const trails: Trail[] = [
       "Home to ancient literary traditions such as the Dhavala palm-leaf manuscripts",
     ],
     note: "*Transport by chartered bus is provided between stops. Walking is required at each location.",
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Moodbidri_with%20name.png?updatedAt=1791037662938",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Moodbidri_with%20name.png?updatedAt=1795533468761",
     position: { left: "78%", top: "85%" },
   },
   {
@@ -133,17 +134,15 @@ const trails: Trail[] = [
       "The bazaars dotted with shops run by GSB traders",
     ],
     note: "*Transport by chartered bus is provided between stops. Walking is required at each location.",
-    pictogram: "https://ik.imagekit.io/abr6j2ge8/map-icons/Karkala_with%20name%20.png?updatedAt=1791037663011",
+    pictogram: "https://ik.imagekit.io/x2vw2cavz/thekoralcollective/map-icons/Karkala_with%20name%20.png?updatedAt=1795533469052",
     position: { left: "75%", top: "60%" },
   },
 ];
 
 export function OfferingExperience() {
+  const whatsappUrl = `https://wa.me/${getSiteConfig().contact.whatsapp.phoneE164}`;
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeTrail = trails[activeIndex];
-  const activeTrailImage = getAllExperiences().find(
-    (experience) => experience.title === activeTrail.name,
-  )?.image;
+  const experiences = getAllExperiences();
   const selectTrail = (index: number) => setActiveIndex((index + trails.length) % trails.length);
 
   useEffect(() => {
@@ -182,9 +181,9 @@ export function OfferingExperience() {
             </span>
           </div>
 
-          <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1.15fr)_minmax(24rem,0.85fr)] xl:gap-12">
+          <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,36rem)_minmax(0,1fr)] xl:gap-12">
             {/* MAP */}
-            <div className="relative w-full overflow-hidden border border-[var(--color-border-strong)] bg-[#d7bd8c]">
+            <div className="relative w-full max-w-[36rem] overflow-hidden border border-[var(--color-border-strong)] bg-[#d7bd8c]">
               <Image
                 src="/images/illustrations/tulunadu-offering-map.png"
                 alt="Illustrated map showing the seven the koral collective walking trail locations across Tulunadu"
@@ -213,7 +212,7 @@ export function OfferingExperience() {
                           alt=""
                           width={180}
                           height={180}
-                          className="h-11 w-11 object-contain sm:h-12 sm:w-12 md:h-14 md:w-14"
+                          className="h-11 w-11 object-contain sm:h-12 sm:w-12 md:h-14 md:w-14 xl:h-16 xl:w-16"
                         />
                       </div>
                     </button>
@@ -222,72 +221,112 @@ export function OfferingExperience() {
               </div>
             </div>
 
-            {/* DETAIL PANEL */}
-            <article className="border-t border-[var(--color-border-strong)] pt-5" aria-live="polite">
-              <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden bg-[#d9c9b2]">
-                <Image
-                  src={activeTrailImage?.src ?? activeTrail.pictogram}
-                  alt={activeTrailImage?.alt ?? ""}
-                  fill
-                  sizes="(min-width: 1280px) 34vw, (min-width: 1024px) 40vw, 100vw"
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-4xl font-serif font-medium leading-none text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
-                    {activeTrail.name} trail
-                  </h2>
-                  <div className="mt-3 flex items-center gap-3">
-                    <span
-                      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${activeTrail.durationHours === 2
-                        ? "bg-[var(--color-duration-short)]/30 text-[#5c571e]"
-                        : "bg-[var(--color-duration-long)]/20 text-[#365029]"
-                        }`}
+            <div className="min-w-0">
+              <div className="grid">
+                {trails.map((trail, index) => {
+                  const isActive = index === activeIndex;
+                  const trailImage = experiences.find(
+                    (experience) => experience.title === trail.name,
+                  )?.image;
+
+                  return (
+                    <article
+                      key={trail.name}
+                      aria-live={isActive ? "polite" : undefined}
+                      aria-hidden={!isActive}
+                      inert={!isActive}
+                      className={`col-start-1 row-start-1 border-t border-[var(--color-border-strong)] pt-5 ${
+                        isActive ? "visible" : "invisible"
+                      }`}
                     >
-                      <span
-                        className={`h-1.5 w-1.5 rounded-full ${activeTrail.durationHours === 2 ? "bg-[var(--color-duration-short)]" : "bg-[var(--color-duration-long)]"
-                          }`}
-                        aria-hidden="true"
-                      />
-                      {activeTrail.duration}
-                    </span>
-                    <span className="text-sm text-[var(--color-text-muted)]">{activeTrail.price}</span>
-                  </div>
-                </div>
+                      <div className="relative mb-8 aspect-[16/9] w-full overflow-hidden bg-[#d9c9b2]">
+                        {isActive ? (
+                          <Image
+                            src={trailImage?.src ?? trail.pictogram}
+                            alt={trailImage?.alt ?? ""}
+                            fill
+                            sizes="(min-width: 1280px) 34vw, (min-width: 1024px) 40vw, 100vw"
+                            className="object-contain"
+                          />
+                        ) : null}
+                      </div>
+                      <div className="flex items-start justify-between gap-4">
+                        <h2 className="min-w-0 text-4xl font-serif font-medium leading-none text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
+                          {trail.name} trail
+                        </h2>
+                        <CarouselArrows
+                          activeIndex={index}
+                          count={trails.length}
+                          onSelect={selectTrail}
+                          itemLabel="trail"
+                        />
+                      </div>
+                      <div className="mt-3 flex items-center gap-3">
+                        <span
+                          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${trail.durationHours === 2
+                            ? "bg-[var(--color-duration-short)]/30 text-[#5c571e]"
+                            : "bg-[var(--color-duration-long)]/20 text-[#365029]"
+                            }`}
+                        >
+                          <span
+                            className={`h-1.5 w-1.5 rounded-full ${trail.durationHours === 2 ? "bg-[var(--color-duration-short)]" : "bg-[var(--color-duration-long)]"
+                              }`}
+                            aria-hidden="true"
+                          />
+                          {trail.duration}
+                        </span>
+                        <span className="text-sm text-[var(--color-text-muted)]">{trail.price}</span>
+                      </div>
+
+                      <p className="mt-6 text-base leading-relaxed text-[var(--color-text-muted)]">{trail.description}</p>
+
+                      <p className="mt-6 text-base font-semibold text-[var(--color-text-primary)]">Highlights along the trail:</p>
+                      <ul className="mt-3 space-y-2 text-base leading-relaxed text-[var(--color-text-muted)]">
+                        {trail.highlights.map((highlight) => (
+                          <li key={highlight} className="flex gap-2">
+                            <span aria-hidden="true">•</span>
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {trail.note ? (
+                        <p className="mt-6 text-xs italic leading-relaxed text-[var(--color-text-subtle)]">{trail.note}</p>
+                      ) : null}
+
+                      {trail.leader ? (
+                        <p className="mt-6 text-sm text-[var(--color-text-muted)]">
+                          Walk led by{" "}
+                          <a
+                            href={trail.leaderHref}
+                            className="font-bold text-[var(--color-brand-primary)] underline underline-offset-4"
+                          >
+                            {trail.leader}
+                          </a>
+                          , Architect and Teacher
+                        </p>
+                      ) : null}
+                    </article>
+                  );
+                })}
               </div>
-
-              <p className="mt-6 text-base leading-relaxed text-[var(--color-text-muted)]">{activeTrail.description}</p>
-
-              <p className="mt-6 text-base font-semibold text-[var(--color-text-primary)]">Highlights along the trail:</p>
-              <ul className="mt-3 space-y-2 text-base leading-relaxed text-[var(--color-text-muted)]">
-                {activeTrail.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-2">
-                    <span aria-hidden="true">•</span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {activeTrail.note ? (
-                <p className="mt-6 text-xs italic leading-relaxed text-[var(--color-text-subtle)]">{activeTrail.note}</p>
-              ) : null}
-
-              {activeTrail.leader ? (
-                <p className="mt-6 text-sm text-[var(--color-text-muted)]">
-                  Walk led by{" "}
-                  <a
-                    href={activeTrail.leaderHref}
-                    className="font-bold text-[var(--color-brand-primary)] underline underline-offset-4"
-                  >
-                    {activeTrail.leader}
-                  </a>
-                  , Architect and Teacher
-                </p>
-              ) : null}
-
-              <OfferingControls activeIndex={activeIndex} count={trails.length} onSelect={selectTrail} />
-            </article>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href="/faqs"
+                  className="inline-flex items-center border border-[var(--color-brand-primary)] px-4 py-2.5 font-sans text-sm font-medium tracking-wide text-[var(--color-brand-primary)] transition-colors hover:bg-[var(--color-brand-primary)] hover:text-[var(--color-text-inverse)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)] focus-visible:ring-offset-2"
+                >
+                  FAQs
+                </Link>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center border border-[var(--color-brand-primary)] bg-[var(--color-brand-primary)] px-4 py-2.5 font-sans text-sm font-medium tracking-wide text-[var(--color-text-inverse)] transition-colors hover:bg-transparent hover:text-[var(--color-brand-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)] focus-visible:ring-offset-2"
+                >
+                  Book a spot
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
