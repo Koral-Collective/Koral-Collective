@@ -15,9 +15,20 @@ export function OfferingControls({ activeIndex, count, onSelect }: OfferingContr
         type="button"
         onClick={() => selectRelative(-1)}
         aria-label="Previous trail"
-        className="text-sm font-medium text-[var(--color-brand-primary)] underline underline-offset-4 transition-colors hover:text-[var(--color-text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-base)] text-[var(--color-brand-primary)] transition-colors hover:bg-[var(--color-brand-primary)] hover:text-[var(--color-text-inverse)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)] focus-visible:ring-offset-2 sm:h-9 sm:w-9"
       >
-        Previous
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M19 12H5m6-6-6 6 6 6" />
+        </svg>
       </button>
       <div className="flex items-center gap-2" aria-label="Choose a trail">
         {Array.from({ length: count }, (_, index) => (
@@ -39,9 +50,20 @@ export function OfferingControls({ activeIndex, count, onSelect }: OfferingContr
         type="button"
         onClick={() => selectRelative(1)}
         aria-label="Next trail"
-        className="text-sm font-medium text-[var(--color-brand-primary)] underline underline-offset-4 transition-colors hover:text-[var(--color-text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)]"
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-base)] text-[var(--color-brand-primary)] transition-colors hover:bg-[var(--color-brand-primary)] hover:text-[var(--color-text-inverse)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-primary)] focus-visible:ring-offset-2 sm:h-9 sm:w-9"
       >
-        Next
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </svg>
       </button>
     </div>
   );

@@ -25,33 +25,48 @@ export function OfferingShowcase() {
       showcaseOrder.indexOf(first.slug) - showcaseOrder.indexOf(second.slug),
   );
   const railRef = useRef<HTMLDivElement>(null);
+  const programmaticScrollRef = useRef(false);
+  const scrollSettleTimerRef = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updateMotionPreference = () => setReducedMotion(mediaQuery.matches);
+    const rail = railRef.current;
+    if (!rail) return;
 
-    updateMotionPreference();
-    mediaQuery.addEventListener("change", updateMotionPreference);
-    return () => mediaQuery.removeEventListener("change", updateMotionPreference);
+    const finishProgrammaticScroll = () => {
+      programmaticScrollRef.current = false;
+      if (scrollSettleTimerRef.current !== null) {
+        window.clearTimeout(scrollSettleTimerRef.current);
+        scrollSettleTimerRef.current = null;
+      }
+    };
+
+    rail.addEventListener("scrollend", finishProgrammaticScroll);
+    return () => rail.removeEventListener("scrollend", finishProgrammaticScroll);
   }, []);
 
-  useEffect(() => {
-    if (reducedMotion || experiences.length < 2) return;
-
-    const timer = window.setTimeout(() => {
-      const nextIndex = (activeIndex + 1) % experiences.length;
-      setActiveIndex(nextIndex);
-      scrollToCard(nextIndex);
-    }, 2000);
-
-    return () => window.clearTimeout(timer);
-  }, [activeIndex, experiences.length, reducedMotion]);
+  const cancelProgrammaticScroll = () => {
+    programmaticScrollRef.current = false;
+    if (scrollSettleTimerRef.current !== null) {
+      window.clearTimeout(scrollSettleTimerRef.current);
+      scrollSettleTimerRef.current = null;
+    }
+  };
 
   const handleScroll = () => {
     const rail = railRef.current;
     if (!rail) return;
+
+    if (programmaticScrollRef.current) {
+      if (scrollSettleTimerRef.current !== null) {
+        window.clearTimeout(scrollSettleTimerRef.current);
+      }
+      scrollSettleTimerRef.current = window.setTimeout(() => {
+        programmaticScrollRef.current = false;
+        scrollSettleTimerRef.current = null;
+      }, 1000);
+      return;
+    }
 
     const center = rail.scrollLeft + rail.clientWidth / 2;
     let closestIndex = 0;
@@ -76,8 +91,25 @@ export function OfferingShowcase() {
     const card = rail?.children[index] as HTMLElement | undefined;
     if (!rail || !card) return;
 
+    setActiveIndex(index);
     const left = card.offsetLeft - (rail.clientWidth - card.offsetWidth) / 2;
-    rail.scrollTo({ left, behavior: "smooth" });
+    const maxLeft = rail.scrollWidth - rail.clientWidth;
+    const targetLeft = Math.max(0, Math.min(maxLeft, left));
+
+    if (Math.abs(targetLeft - rail.scrollLeft) < 1) {
+      cancelProgrammaticScroll();
+      return;
+    }
+
+    programmaticScrollRef.current = true;
+    if (scrollSettleTimerRef.current !== null) {
+      window.clearTimeout(scrollSettleTimerRef.current);
+    }
+    scrollSettleTimerRef.current = window.setTimeout(() => {
+      programmaticScrollRef.current = false;
+      scrollSettleTimerRef.current = null;
+    }, 1000);
+    rail.scrollTo({ left: targetLeft, behavior: "smooth" });
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -111,6 +143,8 @@ export function OfferingShowcase() {
           ref={railRef}
           onScroll={handleScroll}
           onKeyDown={handleKeyDown}
+          onTouchStart={cancelProgrammaticScroll}
+          onWheel={cancelProgrammaticScroll}
           tabIndex={0}
           className="flex snap-x snap-mandatory items-end gap-4 overflow-x-auto overscroll-x-contain pb-8 pt-6 scrollbar-none sm:gap-6"
           aria-label="the koral collective offerings"
@@ -124,8 +158,8 @@ export function OfferingShowcase() {
                 index % 2 === 0 ? "-translate-y-3" : "translate-y-5"
               } ${activeIndex === index ? "scale-[1.02]" : "scale-95 opacity-75 hover:scale-[0.98] hover:opacity-100"}`}
             >
-              <div className="aspect-[4/5] border border-[#8a6343]/70 bg-[#f7eddb] p-1.5 shadow-[8px_8px_0_rgba(90,56,40,0.12)]">
-                <div className="relative h-full w-full overflow-hidden border border-[#c9a87c]/70">
+              <div className="aspect-[4/5] bg-[#4B3025] p-2 shadow-[8px_8px_0_rgba(90,56,40,0.12)] outline outline-2 outline-[#4B3025]">
+                <div className="relative h-full w-full overflow-hidden">
                   {experience.image ? (
                     <Image
                       src={experience.image.src}
